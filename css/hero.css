@@ -1,0 +1,116 @@
+#hero {
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-content {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 4vw;
+  height: calc(100vh - var(--nav-height));
+  max-width: 992px;
+  margin: 0 auto;
+}
+
+#hero svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(14, 65, 102, 0.86),
+    #0e4166
+  );
+  z-index: -100;
+}
+
+.titles {
+  position: relative;
+  font-size: 5rem;
+  color: var(--third-color);
+}
+
+.hero-title {
+  visibility: hidden;
+  transform: translateY(-100%);
+  transform-origin: top;
+  animation: 1s linear 2s forwards titleEffect;
+}
+.hero-subtitle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5vw;
+  transform-origin: bottom;
+  animation: 1.2s linear 1.5s forwards subtitleEffect;
+}
+
+@keyframes titleEffect {
+  to {
+    visibility: visible;
+    transform: translateY(0%);
+    text-shadow: 0 0 10px #fff;
+    filter: brightness(150%);
+  }
+}
+
+@keyframes subtitleEffect {
+  to {
+    transform: scaleY(0);
+  }
+}
+
+.img-container {
+  position: relative;
+  width: 30%;
+  height: 100%;
+}
+
+.img-container img {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  object-fit: cover;
+}
+
+.ing-img {
+  transform: translate(-50%, 0);
+  animation: 1s linear 1.5s forwards ingImgEffect;
+}
+
+.dev-img {
+  transform: translate(-50%, 100%);
+  animation: 1s linear 2s forwards devImgEffect;
+}
+
+@keyframes devImgEffect {
+  to {
+    transform: translate(-50%, 0%);
+  }
+}
+
+@keyframes ingImgEffect {
+  to {
+    transform: translate(-50%, 100%);
+  }
+}
+
+@media (max-width: 992px) {
+  .titles {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    top: 12vw;
+  }
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

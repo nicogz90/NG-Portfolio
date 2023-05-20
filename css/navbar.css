@@ -1,0 +1,221 @@
+/* HEADER */
+#scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+}
+
+#scroll-progress {
+  display: block;
+  width: 100%;
+  height: inherit;
+  background-image: linear-gradient(
+    90deg,
+    var(--fourth-color),
+    var(--secondary-color),
+    var(--third-color),
+    var(--primary-color)
+  );
+}
+
+.topheader {
+  background-color: var(--theme-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding: 0 1rem;
+  height: var(--nav-height);
+  box-shadow: 0px 5px 15px var(--primary-color);
+  z-index: 99;
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  max-width: 992px;
+  margin: 0 auto;
+}
+
+/* > Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  gap: 0.5em;
+}
+
+.logo div {
+  background-image: radial-gradient(
+    var(--fourth-color),
+    var(--third-color),
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  width: 80px;
+  text-align: center;
+  line-height: 80px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+}
+.logo div a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* > Menu */
+.menu {
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 1em;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: max-content;
+  transition: box-shadow 0.4s;
+}
+
+.menu a:hover {
+  box-shadow: 0 4px var(--third-color) !important;
+}
+
+button img {
+  scale: 65%;
+}
+
+.open-menu,
+.close-menu {
+  display: none;
+}
+
+/* --- DARK MODE TOGGLE --- */
+/* switch --> box around the slider */
+.switch {
+  background-color: var(--dark-theme-color);
+  border: 1px solid var(--dark-theme-color);
+  border-radius: 1em;
+  --width-of-switch: 3.5em;
+  --height-of-switch: 2rem;
+  /* size of sliding icon - sun and moon */
+  --size-of-icon: 1.4em;
+  position: relative;
+  width: var(--width-of-switch);
+  height: var(--height-of-switch);
+}
+
+/* hide default HTML checkbox */
+#toggle-btn {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.3em;
+  transition: 0.4s;
+  border-radius: 1em;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: var(--size-of-icon, 1.4em);
+  width: var(--size-of-icon, 1.4em);
+  border-radius: 50%;
+  background: var(--dark-theme-color);
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--theme-color);
+}
+input:checked + .slider::before {
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  box-shadow: none;
+  transform: translateX(100%);
+}
+
+/* --- */
+
+@media (max-width: 992px) {
+  /* > Menu */
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: var(--menu-width);
+    height: fit-content;
+    overflow-y: auto;
+    padding: 0 0.5rem;
+    z-index: 1;
+    transition: left 0.3s;
+    background-color: var(--menu-mobile-background-color);
+    mix-blend-mode: screen;
+    backdrop-filter: blur(10px) invert(80%);
+  }
+
+  .menu a {
+    color: var(--text-color-inverse) !important;
+    line-height: 60px;
+  }
+
+  .menu a:hover {
+    color: #83c5f7;
+    box-shadow: none;
+  }
+
+  .open-menu,
+  .close-menu {
+    display: flex;
+    border: none;
+    background: none;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .close-menu {
+    height: var(--nav-height);
+    align-self: flex-end;
+  }
+
+  .menu_opened {
+    left: calc(100% - var(--menu-width));
+  }
+
+  .switch {
+    position: fixed;
+    top: calc(var(--nav-height) / 2 - var(--height-of-switch) / 2);
+    right: 80px;
+  }
+}
+
+@media (max-width: 400px) {
+  .switch {
+    position: fixed;
+    top: calc(100vh - var(--nav-height) / 2);
+    right: 15px;
+  }
+}

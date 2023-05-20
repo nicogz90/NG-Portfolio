@@ -1,0 +1,149 @@
+#profile {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 992px;
+}
+
+.profile-img {
+  object-fit: cover;
+  filter: drop-shadow(0 0 2rem var(--fourth-color));
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 550px;
+  text-align: left;
+  font-size: 1.2rem;
+  padding: 2rem 0;
+}
+
+.profile-details p {
+  margin: 1rem 2rem;
+}
+
+/* Scroll animations */
+/* Intersection Observer: tells you if an element in the DOM is visible to the end user */
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(100%);
+  transition: all 1s;
+}
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+  transition: all 1s;
+}
+
+.typewriter {
+  display: inline-block;
+}
+
+.typewriter h3 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  border-right: 0.2em solid orange;
+  width: 0%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/* Animation done on scroll >> class .type toggle with Interception Observer*/
+.type {
+  animation: typing 2s steps(30) 0.5s forwards,
+    blink-caret 0.5s step-end infinite;
+}
+
+@keyframes typing {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+#download-btn {
+  text-align: center;
+}
+
+.profile-btn {
+  background-color: var(--primary-color);
+  color: var(--text-color-inverse);
+  border: none;
+  font-size: 20px;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* animation for download icon */
+i {
+  position: relative;
+  margin-right: 5px;
+}
+i::after {
+  content: "";
+  background-color: var(--primary-color);
+  width: calc(100% + 10px);
+  position: absolute;
+  left: -5px;
+  top: 0;
+}
+.profile-btn:hover > i::after {
+  animation: changeHeight 2s infinite ease-in-out;
+}
+.profile-btn:hover {
+  filter: brightness(125%);
+}
+
+@keyframes changeHeight {
+  from {
+    height: 5%;
+  }
+  25% {
+    height: 50%;
+    top: 25%;
+  }
+  75% {
+    height: 50%;
+    top: 75%;
+  }
+  to {
+    height: 0;
+    top: 110%;
+  }
+}
+
+.profile-img {
+  width: 100%;
+  max-width: 300px;
+  margin: 1.5rem;
+  box-shadow: 0 10px var(--secondary-color);
+  transform: scaleX(-1);
+}
+
+@media (max-width: 992px) {
+  #profile {
+    flex-direction: column-reverse;
+  }
+
+  .profile-details {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+}
