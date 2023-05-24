@@ -6,8 +6,7 @@
 .hero-content {
   display: flex;
   text-align: center;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: space-evenly;
   padding-top: 4vw;
   height: calc(100vh - var(--nav-height));
   max-width: 992px;
@@ -33,6 +32,8 @@
   position: relative;
   font-size: 5rem;
   color: var(--third-color);
+  vertical-align: super;
+  text-transform: uppercase;
 }
 
 .hero-title {
@@ -45,7 +46,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 5vw;
+  top: 0;
   transform-origin: bottom;
   animation: 1.2s linear 1.5s forwards subtitleEffect;
 }

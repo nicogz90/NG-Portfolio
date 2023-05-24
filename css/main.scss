@@ -9,6 +9,8 @@
   --third-color: #74dbe0;
   --fourth-color: #a1e1fa;
 
+  --body-height: 0;
+
   /* Mobile */
   --menu-mobile-background-color: #126599;
   --menu-width: 150px;
@@ -19,6 +21,7 @@
   margin: 0;
   padding: 0;
 }
+
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -33,7 +36,24 @@ body {
   padding-top: var(--nav-height);
   overflow-x: hidden;
   width: 100%;
-  position: relative;
+}
+
+#spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--dark-theme-color);
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+#spinner iframe {
+  scale: 0.3;
+  mix-blend-mode: screen;
 }
 
 main {
@@ -64,15 +84,14 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
 }
 
 .bubble {
-  position: relative;
+  position: absolute;
   left: var(--bubble-left-offset);
   bottom: 0;
-  display: block;
   width: var(--bubble-radius);
   height: var(--bubble-radius);
   border-radius: 50%;
   animation: float-up var(--bubble-float-duration) var(--bubble-float-delay)
-    ease-in infinite;
+    ease-in-out infinite;
 
   &::before {
     position: absolute;
@@ -91,9 +110,9 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
     &:nth-child(#{$i}) {
       --bubble-left-offset: #{random_range(0vw, 100vw)};
       --bubble-radius: #{random_range(1vw, 10vw)};
-      --bubble-float-duration: #{random_range(6s, 12s)};
+      --bubble-float-duration: #{random_range(10s, 30s)};
       --bubble-sway-duration: #{random_range(4s, 6s)};
-      --bubble-float-delay: #{random_range(0s, 4s)};
+      --bubble-float-delay: #{random_range(0s, 8s)};
       --bubble-sway-delay: #{random_range(0s, 4s)};
       --bubble-sway-type: #{sample($sway-type)};
     }
@@ -102,7 +121,7 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
 
 @keyframes float-up {
   to {
-    transform: translateY(-100vh);
+    transform: translateY(var(--body-height));
   }
 }
 
