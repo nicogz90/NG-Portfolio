@@ -9,8 +9,6 @@
   --third-color: #74dbe0;
   --fourth-color: #a1e1fa;
 
-  --body-height: 0;
-
   /* Mobile */
   --menu-mobile-background-color: #126599;
   --menu-width: 150px;
@@ -48,7 +46,7 @@ body {
   display: grid;
   place-items: center;
   pointer-events: none;
-  z-index: 1000;
+  z-index: 10;
 }
 
 #spinner iframe {
@@ -72,6 +70,32 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
 
 @function sample($list) {
   @return nth($list, random(length($list)));
+}
+
+@keyframes float-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes sway-left-to-right {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes sway-right-to-left {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 .bubbles {
@@ -116,32 +140,6 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
       --bubble-sway-delay: #{random_range(0s, 4s)};
       --bubble-sway-type: #{sample($sway-type)};
     }
-  }
-}
-
-@keyframes float-up {
-  to {
-    transform: translateY(var(--body-height));
-  }
-}
-
-@keyframes sway-left-to-right {
-  from {
-    transform: translateX(-100%);
-  }
-
-  to {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes sway-right-to-left {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(-100%);
   }
 }
 
