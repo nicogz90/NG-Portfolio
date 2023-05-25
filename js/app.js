@@ -3,26 +3,23 @@ const tabTitle = document.title;
 window.addEventListener("blur", () => (document.title = "<NG /> Come back 😔"));
 window.addEventListener("focus", () => (document.title = tabTitle + " 😀"));
 
-/* Page loader */
-window.addEventListener("load", () => {
-  var spinner = document.querySelector("#spinner");
-  spinner.style.display = "none";
-});
-
-/* Capture body height for bubbles translateY animation */
 // Wait for the document to finish loading
 document.addEventListener("DOMContentLoaded", function () {
-  // Function to capture the body height and update CSS
+  /* Remove page loader */
+  const spinner = document.querySelector("#spinner");
+  spinner.style.display = "none";
+
+  /* Capture body height for bubbles translateY animation */
   function captureBodyHeight() {
-    var bodyHeight = document.body.offsetHeight;
+    const bodyHeight = document.body.offsetHeight;
+    const translateYValue = -bodyHeight + "px";
 
-    // Update the CSS variable value
-    document.documentElement.style.setProperty(
-      "--body-height",
-      -bodyHeight + "px"
-    );
+    // Apply the translateY value to each "bubble"
+    const bubbles = document.querySelectorAll(".bubble");
+    bubbles.forEach(function (bubble) {
+      bubble.style.transform = "translateY(" + translateYValue + ")";
+    });
   }
-
   // Call the captureBodyHeight function whenever the window is resized
   window.addEventListener("resize", captureBodyHeight);
 
