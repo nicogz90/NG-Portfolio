@@ -46,7 +46,7 @@ body {
   display: grid;
   place-items: center;
   pointer-events: none;
-  z-index: 10;
+  z-index: 999;
 }
 
 #spinner iframe {
@@ -74,7 +74,7 @@ $sway-type: "sway-left-to-right", "sway-right-to-left";
 
 @keyframes float-up {
   from {
-    transform: translateY(100%);
+    transform: translateY(0%);
   }
 }
 

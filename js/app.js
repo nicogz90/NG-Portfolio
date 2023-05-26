@@ -3,12 +3,14 @@ const tabTitle = document.title;
 window.addEventListener("blur", () => (document.title = "<NG /> Come back 😔"));
 window.addEventListener("focus", () => (document.title = tabTitle + " 😀"));
 
-// Wait for the document to finish loading
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
   /* Remove page loader */
   const spinner = document.querySelector("#spinner");
   spinner.style.display = "none";
+});
 
+// Wait for the document to finish loading
+document.addEventListener("DOMContentLoaded", function () {
   /* Capture body height for bubbles translateY animation */
   function captureBodyHeight() {
     const bodyHeight = document.body.offsetHeight;
@@ -22,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // Call the captureBodyHeight function whenever the window is resized
   window.addEventListener("resize", captureBodyHeight);
-
   // Call the captureBodyHeight function initially
   captureBodyHeight();
 });
