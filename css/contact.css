@@ -22,7 +22,6 @@
 
 .contacts h2 {
   font-size: 2.5rem;
-  /* font-weight: 400; */
 }
 
 .contact-item {
@@ -31,7 +30,6 @@
   gap: 0.5em;
   border-radius: 15px;
   padding: 10px;
-  white-space: nowrap;
   flex-grow: 1;
 }
 
