@@ -51,6 +51,7 @@
 
 [data-skill]:hover {
   z-index: 1;
+  filter: brightness(115%);
   --_t: 1.1;
 }
 
