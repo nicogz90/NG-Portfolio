@@ -60,6 +60,12 @@
   position: absolute;
   top: 0;
   background: var(--secondary-color);
+  background: linear-gradient(
+    0deg,
+    var(--secondary-color) 0%,
+    var(--fourth-color) 50%,
+    var(--secondary-color) 100%
+  );
   transform: rotateY(180deg);
 }
 
@@ -83,11 +89,6 @@
   box-shadow: 3px 3px 2px #25475c, -3px -3px 2px #6fd4ff;
 }
 
-.links a:hover {
-  outline: 1px outset;
-  outline-offset: -0.2em;
-}
-
 .card-body {
   padding: 1rem;
   text-align: center;
@@ -100,11 +101,17 @@
   margin-bottom: 0.5rem;
 }
 .card-subtitle {
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
+hr {
+  width: 75%;
+  margin: 1rem auto 0.5rem;
+}
+
 .card-text {
-  line-height: 1.5;
+  font-size: 1.1rem;
 }
 
 @media (max-width: 992px) {
@@ -112,5 +119,17 @@
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .projects-title,
+  .card-title {
+    font-size: 1.7rem;
+  }
+}
+@media (max-width: 576px) {
+  .projects-title,
+  .card-title {
+    font-size: 1.5rem;
   }
 }
