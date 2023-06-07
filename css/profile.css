@@ -138,12 +138,17 @@ i::after {
 }
 
 @media (max-width: 992px) {
+  .profile-details {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
   #profile {
     flex-direction: column-reverse;
   }
 
   .profile-details {
     text-align: center;
-    font-size: 1.1rem;
   }
 }

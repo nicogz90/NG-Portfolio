@@ -219,7 +219,7 @@ input:checked + .slider::before {
 @media (max-width: 400px) {
   .switch {
     position: fixed;
-    top: calc(100vh - var(--nav-height) / 2);
+    top: calc(100vh - 55px);
     right: 15px;
   }
 }

@@ -4,6 +4,7 @@
 }
 
 #contact-container {
+  min-width: 300px;
   max-width: 992px;
   background-image: linear-gradient(
     90deg,
@@ -72,6 +73,11 @@
 
 @media (max-width: 992px) {
   .contacts {
-    font-size: 1.1rem;
+    align-items: center;
+  }
+  .contact-item {
+    flex-direction: column;
+    gap: 1em;
+    padding: 20px;
   }
 }

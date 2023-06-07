@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
+
 #hero {
   overflow: hidden;
   position: relative;
@@ -29,8 +31,9 @@
 }
 
 .titles {
+  font-family: "Rampart One", cursive;
   position: relative;
-  font-size: 5rem;
+  font-size: 5.2rem;
   color: var(--third-color);
   vertical-align: super;
   text-transform: uppercase;
@@ -40,7 +43,7 @@
   visibility: hidden;
   transform: translateY(-100%);
   transform-origin: top;
-  animation: 1s linear 2s forwards titleEffect;
+  animation: 1s linear 3s forwards titleEffect;
 }
 .hero-subtitle {
   position: absolute;
@@ -48,15 +51,15 @@
   right: 0;
   top: 0;
   transform-origin: bottom;
-  animation: 1.2s linear 1.5s forwards subtitleEffect;
+  animation: 1.2s linear 2.5s forwards subtitleEffect;
 }
 
 @keyframes titleEffect {
   to {
     visibility: visible;
     transform: translateY(0%);
-    text-shadow: 0 0 10px #fff;
-    filter: brightness(150%);
+    text-shadow: 0px 0 50px var(--third-color);
+    filter: brightness(115%);
   }
 }
 
@@ -82,12 +85,12 @@
 
 .ing-img {
   transform: translate(-50%, 0);
-  animation: 1s linear 1.5s forwards ingImgEffect;
+  animation: 1s linear 2.5s forwards ingImgEffect;
 }
 
 .dev-img {
   transform: translate(-50%, 100%);
-  animation: 1s linear 2s forwards devImgEffect;
+  animation: 1s linear 3s forwards devImgEffect;
 }
 
 @keyframes devImgEffect {
@@ -103,15 +106,28 @@
 }
 
 @media (max-width: 992px) {
-  .titles {
-    font-size: 3rem;
-  }
-  .hero-subtitle {
-    top: 12vw;
-  }
   .hero-content {
+    padding-top: 8vw;
+  }
+  .titles {
+    font-size: 4.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding-top: 6vw;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content {
+    padding-top: 8vw;
+  }
+  .titles {
+    font-size: 3.2rem;
   }
 }

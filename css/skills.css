@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&display=swap");
+
 #skills {
   margin: 0 auto;
   max-width: 992px;
@@ -39,8 +41,9 @@
 }
 
 .skills-title {
-  font-style: normal;
+  margin: 0;
   font-size: 3rem;
+  font-family: "Konkhmer Sleokchher", cursive;
   z-index: 1;
 }
 
@@ -97,18 +100,33 @@
   --_x: calc(50% + 0.5 * var(--g));
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
+  .skills-list {
+    --s: 150px; /* control the size */
+  }
+  .skills-title {
+    font-size: 2.5rem;
+  }
+
+  [data-skill] i {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 576px) {
   #skills {
-    height: 450px;
+    height: 420px;
   }
 
   .skills-list {
     --s: 100px; /* control the size */
-    --g: 45px; /* control the gap */
+  }
+  .addGap {
+    --g: 20px; /* control the gap */
   }
 
   .skills-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   [data-skill] i {
