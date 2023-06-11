@@ -82,16 +82,19 @@ observerProfileTitle = new IntersectionObserver((entries, observer) => {
 const typewriterTitle = document.querySelector(".typewriter h3");
 observerProfileTitle.observe(typewriterTitle);
 
-const observerSkills = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("addGap");
-      entry.target.style.transition = `.3s linear ${i / 30}s`;
-    } else {
-      entry.target.classList.remove("addGap");
-    }
-  });
-});
+const observerSkills = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("addGap");
+        entry.target.style.transition = `.3s linear ${i / 30}s`;
+      } else {
+        entry.target.classList.remove("addGap");
+      }
+    });
+  },
+  { rootMargin: "15px 0px", threshold: 0 }
+);
 
 const skills = document.querySelectorAll(".skills-list div");
 skills.forEach((skill) => observerSkills.observe(skill));
