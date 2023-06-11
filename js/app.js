@@ -93,7 +93,7 @@ const observerSkills = new IntersectionObserver(
       }
     });
   },
-  { rootMargin: "10px 0px", threshold: 0 }
+  { rootMargin: "15px 0px", threshold: 0 }
 );
 
 const skills = document.querySelectorAll(".skills-list div");
