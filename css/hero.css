@@ -88,14 +88,19 @@
   animation: 1s linear 2.5s forwards ingImgEffect;
 }
 
-.dev-img {
-  transform: translate(-50%, 100%);
+.dev-img,
+.dev-img-mobile {
+  filter: drop-shadow(0 0 1rem var(--third-color));
   animation: 1s linear 3s forwards devImgEffect;
+  transform: translate(-70%, 100%);
+}
+.dev-img-mobile {
+  display: none;
 }
 
 @keyframes devImgEffect {
   to {
-    transform: translate(-50%, 0%);
+    transform: translate(-70%, 0%);
   }
 }
 
@@ -120,6 +125,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .dev-img {
+    display: none;
+  }
+  .dev-img-mobile {
+    display: block;
+    transform: translate(-50%, 100%);
+  }
+  @keyframes devImgEffect {
+    to {
+      transform: translate(-50%, 0%);
+    }
   }
 }
 
