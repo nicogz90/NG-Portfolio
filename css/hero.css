@@ -88,10 +88,18 @@
   animation: 1s linear 2.5s forwards ingImgEffect;
 }
 
+@keyframes ingImgEffect {
+  to {
+    transform: translate(-50%, 100%);
+  }
+}
+
 .dev-img,
 .dev-img-mobile {
   filter: drop-shadow(0 0 1rem var(--third-color));
   animation: 1s linear 3s forwards devImgEffect;
+}
+.dev-img {
   transform: translate(-70%, 100%);
 }
 .dev-img-mobile {
@@ -101,12 +109,6 @@
 @keyframes devImgEffect {
   to {
     transform: translate(-70%, 0%);
-  }
-}
-
-@keyframes ingImgEffect {
-  to {
-    transform: translate(-50%, 100%);
   }
 }
 
