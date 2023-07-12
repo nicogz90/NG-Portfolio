@@ -36,6 +36,12 @@ body {
   width: 100%;
 }
 
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important;
+}
+
 #spinner {
   position: fixed;
   top: 0;
@@ -50,7 +56,7 @@ body {
 }
 
 #spinner iframe {
-  scale: 0.3;
+  scale: 0.25;
   mix-blend-mode: screen;
 }
 

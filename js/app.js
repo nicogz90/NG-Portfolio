@@ -3,10 +3,12 @@ const tabTitle = document.title;
 window.addEventListener("blur", () => (document.title = "<NG /> Come back 😔"));
 window.addEventListener("focus", () => (document.title = tabTitle + " 😀"));
 
+document.body.classList.add("js-loading");
 window.addEventListener("load", function () {
-  /* Remove page loader */
+  /* Remove page loader and enable animations on body */
   const spinner = document.querySelector("#spinner");
   spinner.style.display = "none";
+  document.body.classList.remove("js-loading");
 });
 
 // Wait for the document to finish loading
