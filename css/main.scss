@@ -51,6 +51,8 @@ body {
   width: 100%;
   display: grid;
   place-items: center;
+  place-content: center;
+  margin: auto;
   pointer-events: none;
   z-index: 999;
 }
